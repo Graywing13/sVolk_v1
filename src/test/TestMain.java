@@ -1,5 +1,6 @@
 package test;
-import characters.Char;
+import util.Effect;
+import util.ProcessTxt;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,9 @@ public class TestMain {
 
     public void gameRun(){
         System.out.println("gameRun called.");
+        ProcessTxt.initDictionary();
+
+
         Char eze = new Char("Ezelith");
         ArrayList<Effect> ezeEffs = new ArrayList<Effect>();
         Effect e1 = new Effect("Flash of Genius","debuff",20,"combo",15,"crit-7",20,"s1-connects",2);

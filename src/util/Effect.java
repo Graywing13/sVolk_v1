@@ -2,9 +2,7 @@
 // See abilities.txt for clarifications.
 // NOTE: By effect I mean ability.
 
-package test;
-
-import mechs.ProcessTxt;
+package util;
 
 public class Effect {
     String name;

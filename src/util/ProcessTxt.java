@@ -1,6 +1,4 @@
-package mechs;
-
-import test.Effect;
+package util;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +17,7 @@ public class ProcessTxt {
 
     // MODIFIES: this
     // EFFECTS: initializes the dictionary.
-    private void initDictionary() {
+    public static void initDictionary() {
         File file = new File(ABILITIES_DICT_LOCATION);
         assert (file.exists());
         try {
@@ -29,9 +27,9 @@ public class ProcessTxt {
                 String string = scanner.nextLine().trim();
                 if (string.startsWith("//")) continue;
                 numEntries++;
-                System.out.print("Processing entry number " + numEntries + "\r");
+                System.out.print("Processing entry number " + numEntries + "\r \n String: " + string);
                 System.out.flush();
-                if (!string.matches("\\w+,\\w+-?\\d+?,\\d+,\\w+-?\\d+?,\\d+,\\w+-?\\d?,\\d+,\\w+-?\\d+?,\\d+")) {
+                if (!string.matches("\\w+(\\s+\\w+)*((,\\w+(-\\d+)?,\\d+){2}){2}")) {
                     throw new RuntimeException("Invalid string: " + string);
                 }
                 String name, e1, e1R, e2, e2R;
@@ -39,23 +37,20 @@ public class ProcessTxt {
                 Scanner parseLine = new Scanner(string).useDelimiter(",");
                 try {
                     name = parseLine.next();
-                    ////////////////////// iGNORE THE REST OF THIS
-                    r = parseLine.nextInt();
-                    g = parseLine.nextInt();
-                    b = parseLine.nextInt();
-                    x = parseLine.nextInt();
-                    y = parseLine.nextInt();
-                    r2 = parseLine.nextInt();
-                    g2 = parseLine.nextInt();
-                    b2 = parseLine.nextInt();
-                    x2 = parseLine.nextInt();
-                    y2 = parseLine.nextInt();
-                    else if (DICTIONARY.containsValue(n))
-                        throw new RuntimeException("Cannot have pokemon of duplicate names: " + string);
-                    DICTIONARY.put(new ColorPixelPair(color1, color2, pos1, pos2), n);
+                    e1 = parseLine.next();
+                    e1P = parseLine.nextInt();
+                    e1R = parseLine.next();
+                    e1RC = parseLine.nextInt();
+                    e2 = parseLine.next();
+                    e2P = parseLine.nextInt();
+                    e2R = parseLine.next();
+                    e2RC = parseLine.nextInt();
+                    if (DICTIONARY.containsValue(name))
+                        throw new RuntimeException("This entry has a duplication: " + string);
+                    DICTIONARY.put(name, new Effect(name,e1,e1P,e1R,e1RC,e2,e2P,e2R,e2RC));
                     parseLine.close();
                 } catch (NumberFormatException e) {
-                    throw new RuntimeException("Invalid number(s) in string: " + string);
+                    throw new RuntimeException("Invalid string: " + string);
                 }
             }
             scanner.close();

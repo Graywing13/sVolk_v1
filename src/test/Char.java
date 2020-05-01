@@ -1,5 +1,5 @@
-package characters;
-import test.Effect;
+package test;
+import util.Effect;
 
 public class Char {
 
