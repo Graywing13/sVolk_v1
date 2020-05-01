@@ -40,6 +40,7 @@ public class ProcessTxt {
                 try {
                     name = parseLine.next();
                     ////////////////////// iGNORE THE REST OF THIS
+                    /*
                     r = parseLine.nextInt();
                     g = parseLine.nextInt();
                     b = parseLine.nextInt();
@@ -53,6 +54,7 @@ public class ProcessTxt {
                     else if (DICTIONARY.containsValue(n))
                         throw new RuntimeException("Cannot have pokemon of duplicate names: " + string);
                     DICTIONARY.put(new ColorPixelPair(color1, color2, pos1, pos2), n);
+                    */
                     parseLine.close();
                 } catch (NumberFormatException e) {
                     throw new RuntimeException("Invalid number(s) in string: " + string);
