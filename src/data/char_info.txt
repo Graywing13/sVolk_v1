@@ -1,0 +1,9 @@
+// This file contains the characters' skills, names, etc. Essentially basic info.
+
+// This is a comment
+// Format:
+// (1) String name
+// (2) String s1-name
+// (3) String s2-name
+// (4) String ability1
+// (5) String ability2

@@ -1,0 +1,39 @@
+// This file contains the skills of the characters, weapons, and dragons, and what effects the skills have.
+// Sources for skill info: dragalialost.gamepedia.com and gamepress.gg/dragalialost
+
+// ---------------------------------------------------------------------------------
+// Notes:
+//   - All skills are max level.
+//   - If a skill does no damage, set all damage values to 0.
+//   - If a skill does not boost, set boost names to "none" and percentages to 0
+//   - If a skill debuffs the enemy, set boost_percentage to 0 (b_p only affects self)
+
+// ---------------------------------------------------------------------------------
+// Glossary:
+// TERM                DEFINITION
+// eAtkDef-n1-n2-n3    (normal) attacks reduce ENEMY defense by n1% for n2 seconds with n3% base chance
+
+// ---------------------------------------------------------------------------------
+// Format:
+// (val #) valueType description
+// (1)     String    skill_name
+// (2)     int       might
+// (3)     int       sp_cost
+// (4)     double    iFrame_time
+// (5)     boolean   can-move?
+// (6)     boolean   energized_affected?
+// (7)     int       damage1_percent
+// (8)     int       damage1_hits
+// (9)     int       damage2_percent
+// (10)    int       damage2_hits
+// (11)    String    boost1_name
+// (12)    int       boost1_percentage
+// (13)    String    boost2_name
+// (14)    int       boost2_percentage
+// (15)    String    boost3_name
+// (16)    int       boost3_percentage
+
+// ---------------------------------------------------------------------------------
+// Skills (Alphabetical Order)
+Brilliant Inferno,300,8940,0.6,false,false,0,0,0,0,strength,20,eAtkDef-5-5-15,0
+Howling Meteor,400,2400,3.4,true,true,63,10,400,1,none,0,none,0,none,0

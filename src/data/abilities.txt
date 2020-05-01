@@ -1,0 +1,31 @@
+// Abilities of all weapons, adventurers, and prints!
+
+// ---------------------------------------------------------------------------------
+// Glossary:
+// TERM                DEFINITION
+// eAtkDef-n1-n2-n3    (normal) attacks reduce ENEMY defense by n1% for n2 seconds with n3% base chance
+// crit-7              increases user critical rate for 7 seconds
+// sleepHit-15         hit by a sleep attack with cooldown 15 seconds before this skill is avail. again
+
+// Notes:
+//    ♠ sleepHit, stunHit etc means hit by an attack that would've stunned or slept the user.
+//    ♠ I called "abilities" "effects" by accident and so I'm rolling with it:)
+//    ♠ Use "0" or "none" in their respective places when none is needed / available
+
+// TODO need to configure eBreak (enemyBreak) to be a bool; if eBreak then do this, no count needed.
+
+// (1) String name
+// (2) String effect1
+// (3) int effect1Percentage
+// (4) String effect1Requirement
+// (5) int effect1ReqCount
+// (6) String effect2
+// (7) int effect2Percentage
+// (8) String effect2Requirement
+// (9) int effect2ReqCount
+
+
+
+Broken Punisher,damage,35,eBreak,0,none,0,none,0
+Flash of Genius,debuff,20,combo,15,crit-7,20,s1-connects,2
+Potent Sleep Res,sleepRes,100,sleepHit,1,strength-10,15,sleepHit-15,1
