@@ -1,9 +1,20 @@
 // This file contains the characters' skills, names, etc. Essentially basic info.
-
-// This is a comment
+//
+// ---------------------------------------------------------------------------------
 // Format:
-// (1) String name
-// (2) String s1-name
-// (3) String s2-name
-// (4) String ability1
-// (5) String ability2
+// (1)  String char-name
+// (2)  String element
+// (3)  String weaponType
+// (4)  String s1-name
+// (5)  String s2-name
+// (6)  String ability1
+// (7)  String ability2
+// (8)  String ability3
+// (9)  String coab-team
+// (10) String coab-chain
+//
+// \\w+(\\s\\w+)*,\\w+,\\w+(,\\w+(\\s\\w+)*){7}
+// name,elem,wT,s1N,s2N,a1,a2,a3,ct,cc
+//
+// ---------------------------------------------------------------------------------
+Ezelith,fire,dagger,Howling Meteor,Brilliant Inferno,Flash of Genius,Potent Sleep Res 100,Broken Punisher 35,Critical Rate 5,Flame Combo Time
