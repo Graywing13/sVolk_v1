@@ -1,4 +1,5 @@
 // Abilities of all weapons, adventurers, and prints! Source: https://gamepress.gg/dragalialost/
+// Mainly used during gamePlay.
 //
 // ---------------------------------------------------------------------------------
 // Glossary:

@@ -50,6 +50,7 @@ public class ProcessTxt {
         }
         if (fileLocation.equals(CHAR_INFO_DICT_LOCATION)) {
             String name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc;
+            int mt, hp, str, def;
             Scanner parseLine = new Scanner(string).useDelimiter(",");
             try {
                 name = parseLine.next();
@@ -62,14 +63,19 @@ public class ProcessTxt {
                 a3 = parseLine.next();
                 ct = parseLine.next();
                 cc = parseLine.next();
+                mt = parseLine.nextInt();
+                hp = parseLine.nextInt();
+                str = parseLine.nextInt();
+                def = parseLine.nextInt();
                 if (dictionary.containsValue(name))
                     throw new RuntimeException("The entry " + string + "already exists in " + fileLocation);
-                dictionary.put(name, new Char(name,elem,wT,s1N,s2N,a1,a2,a3,ct,cc));
+                dictionary.put(name, new Char(name,elem,wT,s1N,s2N,a1,a2,a3,ct,cc,mt,hp,str,def));
                 parseLine.close();
             } catch (NumberFormatException e) {
                 throw new RuntimeException("Invalid string: " + string);
             }
         }
+
     }
 
     // MODIFIES: this

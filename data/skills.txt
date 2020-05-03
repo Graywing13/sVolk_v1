@@ -17,7 +17,7 @@
 // Format:
 // (val #) valueType description
 // (1)     String    skill_name
-// (2)     int       might
+// (2)     int       might                    << actually don't need this; it's already accounted for in char_info.
 // (3)     int       sp_cost
 // (4)     double    iFrame_time
 // (5)     boolean   can-move?

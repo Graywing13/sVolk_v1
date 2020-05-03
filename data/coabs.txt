@@ -1,4 +1,5 @@
 // coabs!!! Source: https://gamepress.gg/dragalialost/
+// Start this up during gameInit.
 //
 // NORMAL COABS ♥ ♥ ♥
 //    • (1) String   skillName
