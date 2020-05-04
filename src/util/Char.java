@@ -1,25 +1,13 @@
 package util;
-import util.Ability;
 
 import java.util.ArrayList;
 
 public class Char {
 
-    String name;
-    String elem;
-    String wT;
-    String s1N;
-    String s2N;
-    String a1;
-    String a2;
-    String a3;
-    String ct;
-    String cc;
-    int mt;
-    int hp;
-    int str;
-    int def;
+    String name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc;
+    int mt, hp, str, def;
 
+    // The Defaults ====================================================================================================
     public Char(String name, String elem, String wT, String s1N, String s2N, String a1, String a2, String a3, String cc, String ct, int mt, int hp, int str, int def) {
         this.name = name;
         this.elem = elem;
@@ -36,11 +24,14 @@ public class Char {
         this.str = str;
         this.def = def;
 
-        System.out.println("This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def +"].");
     }
 
-    // Initialization functions
-    public static void initChar(String charName) {
+    public String toString() {
+        return "This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def +"].";
+    }
+
+    // Initialization functions ========================================================================================
+    public static Char initChar(String charName) {
         Char c = ProcessTxt.CHAR_INFO_DICTIONARY.get(charName);
         ArrayList<Ability> cAbils = new ArrayList<>();
         Ability a1 = ProcessTxt.ABILITIES_DICTIONARY.get(c.getA1());
@@ -52,9 +43,11 @@ public class Char {
         for (Ability ability : cAbils) {
             c.printAbilities(ability);
         }
+
+        return c;
     }
 
-    // Get variable values
+    // Get variable values =============================================================================================
     public String getA1() {
         return this.a1;
     }
@@ -64,8 +57,16 @@ public class Char {
     public String getA3() {
         return this.a3;
     }
-
-    public void printAbilities(Ability ability) {
-        System.out.println(name + "'s skill(s) is " + ability.toString());
+    public String getCC() {
+        return this.cc;
     }
+    public String getCT() {
+        return this.ct;
+    }
+
+    // Other helper functions ==========================================================================================
+    public void printAbilities(Ability ability) {
+        System.out.println(name + "'s ability is " + ability.toString());
+    }
+
 }

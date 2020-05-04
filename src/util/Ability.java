@@ -14,6 +14,7 @@ public class Ability {
     String abil2Req;
     int abil2ReqCount;
 
+    // The Defaults ====================================================================================================
     public Ability(String n, String a1, int a1P, String a1R, int a1RC,  String a2, int a2P, String a2R, int a2RC) {
         this.name = n;
         this.abil1 = a1;

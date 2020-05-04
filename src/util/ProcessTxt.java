@@ -12,7 +12,7 @@ public class ProcessTxt {
     public final static String CHAR_INFO_DICT_LOCATION = "./data/char_info.txt";
     public static final HashMap<String, Char> CHAR_INFO_DICTIONARY = new HashMap<>();
     public final static String COABS_DICT_LOCATION = "./data/coabs.txt";
-    //public static final HashMap<String, Coab> COABS_DICTIONARY = new HashMap<>();
+    public static final HashMap<String, Coab> COABS_DICTIONARY = new HashMap<>();
     public final static String PRINTS_DICT_LOCATION = "./data/prints.txt";
     //public static final HashMap<String, Print> PRINTS_DICTIONARY = new HashMap<>();
     public final static String SKILLS_DICT_LOCATION = "./data/skills.txt";
@@ -75,17 +75,36 @@ public class ProcessTxt {
                 throw new RuntimeException("Invalid string: " + string);
             }
         }
+        if (fileLocation.equals(COABS_DICT_LOCATION)) {
+            String skillName, coabAbil;
+            double coabPercentage;
+            boolean wholeTeam;
+
+            Scanner parseLine = new Scanner(string).useDelimiter(",");
+            try {
+                skillName = parseLine.next();
+                coabAbil = parseLine.next();
+                coabPercentage = parseLine.nextDouble();
+                wholeTeam = parseLine.nextBoolean();
+                if (dictionary.containsValue(skillName))
+                    throw new RuntimeException("The entry " + string + "already exists in " + fileLocation);
+                dictionary.put(skillName, new Coab(skillName, coabAbil, coabPercentage, wholeTeam));
+                parseLine.close();
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Invalid string: " + string);
+            }
+        }
 
     }
 
-    // MODIFIES: this
-    // EFFECTS: initializes the dictionary.
-    // e.g. fileLocation is ABILITIES_DICT_LOCATION
-    //      dictionary is ABILITIES_DICTIONARY
-    //      regexMatch is "\\w+(\\s+\\w+)*((,\\w+(-\\d+)?,\\d+){2}){2}"
     public static void initDictionary(String fileLocation, HashMap dictionary, String regexMatch) {
+        // e.g. fileLocation is ABILITIES_DICT_LOCATION
+        //      dictionary is ABILITIES_DICTIONARY
+        //      regexMatch is "\\w+(\\s+\\w+)*((,\\w+(-\\d+)?,\\d+){2}){2}"
+
         File file = new File(fileLocation);
         assert (file.exists());
+
         try {
             Scanner scanner = new Scanner(file).useDelimiter("\n");
             int numEntries = 0;
