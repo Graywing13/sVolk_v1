@@ -2,6 +2,7 @@ package util;
 
 public class Coab {
 
+    // refer to coabs.txt for unabbreviated versions.
     String sN, cA;
     double cP;
     boolean wT;

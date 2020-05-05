@@ -4,6 +4,8 @@
 package util;
 
 public class Ability {
+
+    // refer to abilities.txt for unabbreviated versions.
     String name;
     String abil1;
     int abil1Perc;

@@ -16,7 +16,7 @@ public class ProcessTxt {
     public final static String PRINTS_DICT_LOCATION = "./data/prints.txt";
     //public static final HashMap<String, Print> PRINTS_DICTIONARY = new HashMap<>();
     public final static String SKILLS_DICT_LOCATION = "./data/skills.txt";
-    //public static final HashMap<String, Skill> SKILLS_DICTIONARY = new HashMap<>();
+    public static final HashMap<String, Skill> SKILLS_DICTIONARY = new HashMap<>();
     public final static String WEAPONS_DICT_LOCATION = "./data/weapons.txt";
     //public static final HashMap<String, Weapon> WEAPONS_DICTIONARY = new HashMap<>();
 
@@ -94,7 +94,36 @@ public class ProcessTxt {
                 throw new RuntimeException("Invalid string: " + string);
             }
         }
-
+        if (fileLocation.equals(SKILLS_DICT_LOCATION)) {
+            String sN, b1N, b2N, b3N;
+            int spC, d1P, d1H, d2P, d2H;
+            double iFT, b1P, b2P, b3P;
+            boolean cM, eA;
+            Scanner parseLine = new Scanner(string).useDelimiter(",");
+            try {
+                sN = parseLine.next();
+                spC = parseLine.nextInt();
+                iFT = parseLine.nextDouble();
+                cM = parseLine.nextBoolean();
+                eA = parseLine.nextBoolean();
+                d1P = parseLine.nextInt();
+                d1H = parseLine.nextInt();
+                d2P = parseLine.nextInt();
+                d2H = parseLine.nextInt();
+                b1N = parseLine.next();
+                b1P = parseLine.nextDouble();
+                b2N = parseLine.next();
+                b2P = parseLine.nextDouble();
+                b3N = parseLine.next();
+                b3P = parseLine.nextDouble();
+                if (dictionary.containsValue(sN))
+                    throw new RuntimeException("The entry " + string + "already exists in " + fileLocation);
+                dictionary.put(sN, new Skill(sN,spC,iFT,cM,eA,d1P,d1H,d2P,d2H,b1N,b1P,b2N,b2P,b3N,b3P));
+                parseLine.close();
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Invalid string: " + string);
+            }
+        }
     }
 
     public static void initDictionary(String fileLocation, HashMap dictionary, String regexMatch) {
