@@ -28,10 +28,12 @@
 // (9) int effect2ReqCount
 //
 // name,e1,e1P,e1R,e1RC,e2,e2P,e2R,e2RC
-// "\w+(\s+\w+)*,\w+(-\d+)?,\d+,\w+(-\d+)?,\d+,\w+(-\d)?,\d+,\w+(-\d+)?,\d+"
+// "\\w+(\\s-)?(\\s+\\w+)*((,\\w+(-\\d+)?,\\d+){2}){2}"
 //
 // ---------------------------------------------------------------------------------------------------------------------
 Broken Punisher 35,damage,35,eBreak,0,none,0,none,0
+// ♦ ♦ ♦ the one below is special: hp drops to 70 gives the boost, for a max of 5 times.
+Flame - Unyielding Offense 4,strength,4,hpUnder-70,5,none,0,none,0
 Flash of Genius,debuff,20,combo,15,crit-7,20,s1connects,2
 Potent Sleep Res 100,sleepRes,100,sleepHit,1,strength-10,15,sleepHit-15,1
 Potent Stun Res 50,stunRes,50,stunHit,1,strength-10,15,sleepHit-15,1

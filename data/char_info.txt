@@ -27,5 +27,5 @@
 // name,elem,wT,s1N,s2N,a1,a2,a3,ct,cc,mt,hp,str,def
 //
 // ---------------------------------------------------------------------------------------------------------------------
-Ezelith,fire,dagger,Howling Meteor,Brilliant Inferno,Flash of Genius,Potent Sleep Res 100,Broken Punisher 35,Critical Rate 10,Flame - Combo Time I,3228,957,371,10
-Xania,fire,wand,Ivyblaze,Pyreblossom,Skill Damage 35,Potent Stun Res 50,Stun Res 50,Skill Damage 15,Flame - Burn means User Wind Res 5,3054,850,584,8
+Ezelith,Flame,Dagger,Howling Meteor,Brilliant Inferno,Flash of Genius,Potent Sleep Res 100,Broken Punisher 35,Critical Rate 10,Flame - Combo Time I,3228,957,371,10
+Xania,Flame,Wand,Ivyblaze,Pyreblossom,Skill Damage 35,Potent Stun Res 50,Stun Res 50,Skill Damage 15,Flame - Burn means User Wind Res 5,3054,850,584,8

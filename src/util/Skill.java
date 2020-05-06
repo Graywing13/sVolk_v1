@@ -16,7 +16,7 @@ public class Skill {
     String b3N;
     double b3P;
 
-    public Skill(String sN, int spC, double iFT, boolean cM, boolean eA, int d1P, int d1H, int d2P, int d2H, String b1N, double b1P, String b2N, double b2P, String b3N, double b3P){
+    public Skill(String sN, int spC, double iFT, boolean cM, boolean eA, int d1P, int d1H, int d2P, int d2H, String b1N, double b1P, String b2N, double b2P, String b3N, double b3P) {
         this.sN = sN;
         this.spC = spC;
         this.iFT = iFT;
@@ -34,8 +34,8 @@ public class Skill {
         this.b3P = b3P;
     }
 
-    public String toString(){
-        String returnString =  sN + ": this skill costs " + spC + " SP and has an iFrame time of " + iFT + ", during which the character can";
+    public String toString() {
+        String returnString = sN + ": this skill costs " + spC + " SP and has an iFrame time of " + iFT + ", during which the character can";
         if (!cM) {
             returnString += "not";
         }

@@ -37,7 +37,7 @@
 // \\w+(\\s\\w+)*,\\d+,\\d+(\\.\\d+)?(,(true|false)){2}(,\\d+){4}(,\\w+(-\\d+(\\.\\d+)?)*,\\d+(\\.\\d+)?){3}
 //
 // ---------------------------------------------------------------------------------------------------------------------
-// SKILLS ♥ ♥ ♥ (Alphabetical Order)
+// ♥ ♥ ♥ SKILLS ♥ ♥ ♥ (Alphabetical Order)
 Brilliant Inferno,8940,0.6,false,false,0,0,0,0,strength,20,eAtkDef-5-5-15,0,none,0
 Ivyblaze,2759,0.9,false,true,895,1,0,0,burn-12-3.9,80.3,none,0,none,0
 Howling Meteor,2400,3.4,true,true,63,10,400,1,none,0,none,0,none,0

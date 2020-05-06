@@ -1,7 +1,5 @@
 package util;
 
-import java.util.ArrayList;
-
 public class Char {
 
     // refer to char_info.txt for unabbreviated versions.
@@ -30,15 +28,13 @@ public class Char {
     }
 
     public String toString() {
-        return "This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def +"].";
+        return "This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def + "].";
     }
 
     // Initialization functions ========================================================================================
-    public Char initChar(Char c) {
+    public void initChar(Char c) {
         charAbilInit(c);
         charSkillInit(c);
-
-        return c;
     }
 
     private void charAbilInit(Char c) {
@@ -67,21 +63,27 @@ public class Char {
     public String getA1() {
         return this.a1;
     }
+
     public String getA2() {
         return this.a2;
     }
+
     public String getA3() {
         return this.a3;
     }
+
     public String getS1() {
         return this.s1N;
     }
+
     public String getS2() {
         return this.s2N;
     }
+
     public String getCC() {
         return this.cc;
     }
+
     public String getCT() {
         return this.ct;
     }
@@ -90,6 +92,7 @@ public class Char {
     public void printAbilities(Ability ability) {
         System.out.println(name + "'s ability is " + ability.toString());
     }
+
     public void printSkills(Skill skill) {
         System.out.println(name + "'s skill is " + skill.toString());
     }

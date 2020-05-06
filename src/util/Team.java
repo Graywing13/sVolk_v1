@@ -3,14 +3,14 @@ package util;
 import java.util.ArrayList;
 
 public class Team {
-    
+
     Char c1, c2, c3, c4;
-    
+
     public Team(String c1Name, String c2Name, String c3Name, String c4Name) {
         initTeamMembers(c1Name, c2Name, c3Name, c4Name);
 
         Char[] players = {c1, c2, c3, c4};
-        
+
         initCoabs(players);
     }
 
