@@ -3,13 +3,23 @@ package util;
 public class Char {
 
     // refer to char_info.txt for unabbreviated versions.
-    String name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc;
+    String name;
+    String elem;
+    String wT;
+    String s1N;
+    String s2N;
+    String a1;
+    String a2;
+    String a3;
+    String ct;
+    String cc;
     int mt, hp, str, def;
     private Ability[] cAbils = new Ability[3];
     private Skill[] cSkills = new Skill[2];
+    Weapon w;
 
     // The Defaults ====================================================================================================
-    public Char(String name, String elem, String wT, String s1N, String s2N, String a1, String a2, String a3, String cc, String ct, int mt, int hp, int str, int def) {
+    public Char(String name, String elem, String wT, String s1N, String s2N, String a1, String a2, String a3, String cc, String ct, int mt, int hp, int str, int def, Weapon w) {
         this.name = name;
         this.elem = elem;
         this.wT = wT;
@@ -24,11 +34,12 @@ public class Char {
         this.hp = hp;
         this.str = str;
         this.def = def;
+        this.w = w;
 
     }
 
     public String toString() {
-        return "This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def + "].";
+        return "This is " + name + ", a " + elem + " attuned " + wT + " adventurer \n\twith the abilities " + a1 + ", " + a2 + ", and " + a3 + ", \n\tas well as the coab " + cc + " and the chain coab " + ct + ". \n\tThey currently have [might " + mt + "], [hp " + hp + "], [str " + str + "], and [def " + def + "]. They have the weapon " + w.wN + ".";
     }
 
     // Initialization functions ========================================================================================
@@ -95,5 +106,16 @@ public class Char {
 
     public void printSkills(Skill skill) {
         System.out.println(name + "'s skill is " + skill.toString());
+    }
+
+    public static Char copy(Char c) {
+        return new Char(c.name, c.elem, c.wT, c.s1N,c.s2N,c.a1,c.a2,c.a3,c.cc,c.ct,c.mt,c.hp,c.str,c.def,c.w);
+    }
+
+    public static void updateMt(Char c) {
+        c.mt = ProcessTxt.CHAR_INFO_DICTIONARY.get(c.name).mt;
+
+        if (c.w.elem.equals(c.elem)) c.mt += c.w.mtE;
+        else c.mt += c.w.mtOE;
     }
 }

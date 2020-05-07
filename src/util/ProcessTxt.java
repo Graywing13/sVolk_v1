@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ProcessTxt {
 
     // General Constants
-    public final static List<String> ELEMENTS = Arrays.asList("Flame", "Light", "Shadow", "Water", "Wind");
+    public final static List<String> ELEMENTS = Arrays.asList("Flame", "Light", "None", "Shadow", "Water", "Wind");
     public final static List<String> WEAPON_TYPES = Arrays.asList("Axe", "Blade", "Bow", "Dagger", "Lance", "Staff", "Sword", "Wand");
 
     // Dictionary Constants
@@ -29,10 +29,6 @@ public class ProcessTxt {
 
     // Dictionary Creation (Main)
     public static void initDictionary(String fileLocation, HashMap dictionary, String regexMatch) {
-        // e.g. fileLocation is ABILITIES_DICT_LOCATION
-        //      dictionary is ABILITIES_DICTIONARY
-        //      regexMatch is "\\w+(\\s+\\w+)*((,\\w+(-\\d+)?,\\d+){2}){2}"
-
         File file = new File(fileLocation);
         assert (file.exists());
 
@@ -81,28 +77,23 @@ public class ProcessTxt {
             }
         }
         if (fileLocation.equals(CHAR_INFO_DICT_LOCATION)) {
-            String name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc;
+            // String name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc;
             int mt, hp, str, def;
+            // Weapon w;
             Scanner parseLine = new Scanner(entry).useDelimiter(",");
             try {
-                name = parseLine.next();
-                elem = parseLine.next();
-                wT = parseLine.next();
-                s1N = parseLine.next();
-                s2N = parseLine.next();
-                a1 = parseLine.next();
-                a2 = parseLine.next();
-                a3 = parseLine.next();
-                ct = parseLine.next();
-                cc = parseLine.next();
+                String[] strings = new String[10];
+                for (int i = 0; i < 10; i++) {
+                    strings[i] = parseLine.next();
+                }
                 mt = parseLine.nextInt();
                 hp = parseLine.nextInt();
                 str = parseLine.nextInt();
                 def = parseLine.nextInt();
-                validElem(elem);
-                validWeapon(wT);
-                validEntry(dictionary, name, entry, fileLocation);
-                dictionary.put(name, new Char(name, elem, wT, s1N, s2N, a1, a2, a3, ct, cc, mt, hp, str, def));
+                validElem(strings[1]);
+                validWeaponType(strings[2]);
+                validEntry(dictionary, strings[0], entry, fileLocation);
+                dictionary.put(strings[0], new Char(strings[0], strings[1], strings[2], strings[3], strings[4], strings[5], strings[6], strings[7], strings[8], strings[9], mt, hp, str, def, null));
                 parseLine.close();
             } catch (NumberFormatException e) {
                 throw new RuntimeException("Invalid string: " + entry);
@@ -142,11 +133,11 @@ public class ProcessTxt {
                 str = parseLine.nextInt();
                 aN = parseLine.next();
 
-                validWeapon(wT);
+                validWeaponType(wT);
                 validElem(elem);
                 validEntry(dictionary, wN, entry, fileLocation);
 
-                dictionary.put(wN, new Weapon(wN, wT, elem, mtE, mtOE, hp, str, aN));
+                dictionary.put(wN, new Weapon(wN, elem, wT, mtE, mtOE, hp, str, aN));
                 parseLine.close();
             } catch (NumberFormatException e) {
                 throw new RuntimeException("Invalid string: " + entry);
@@ -194,7 +185,7 @@ public class ProcessTxt {
         if (!ELEMENTS.contains(elem)) throw new RuntimeException("The element " + elem + " is invalid.");
     }
 
-    private static void validWeapon(String wT) {
+    private static void validWeaponType(String wT) {
         if (!WEAPON_TYPES.contains(wT)) throw new RuntimeException("The weapon type " + wT + " is invalid.");
     }
 

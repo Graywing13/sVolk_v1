@@ -5,47 +5,66 @@ import java.util.ArrayList;
 public class Team {
 
     Char c1, c2, c3, c4;
+    ArrayList<Coab> coabs;
 
     public Team(String c1Name, String c2Name, String c3Name, String c4Name) {
-        initTeamMembers(c1Name, c2Name, c3Name, c4Name);
 
-        Char[] players = {c1, c2, c3, c4};
+        Char[] team = initTeamMembers(c1Name, c2Name, c3Name, c4Name);
+        this.c1 = team[0];
+        this.c2 = team[1];
+        this.c3 = team[2];
+        this.c4 = team[3];
 
-        initCoabs(players);
+        this.coabs = initCoabs(team);
+
+        System.out.println("\n♦ ♦ ♦ Weapon Selection");
+        initWeapons(team);
+
+        printTeamInfo(team);
     }
 
-    private void initCoabs(Char[] players) {
-        ArrayList<Coab> coabs = new ArrayList<>();
+    private void initWeapons(Char[] players) {
         for (Char c : players) {
+            Weapon.changeWeapon(c);
+        }
+    }
+
+    private ArrayList<Coab> initCoabs(Char[] team) {
+        ArrayList<Coab> coA = new ArrayList<>();
+        for (Char c : team) {
             Coab cc = ProcessTxt.COABS_DICTIONARY.get(c.getCC());
             Coab ct = ProcessTxt.COABS_DICTIONARY.get(c.getCT());
-            if (!coabs.contains(cc)) {
-                coabs.add(cc);
+            if (!coA.contains(cc)) {
+                coA.add(cc);
             }
-            if (!coabs.contains(ct)) {
-                coabs.add(ct);
+            if (!coA.contains(ct)) {
+                coA.add(ct);
             }
         }
 
-        System.out.println("\n♦ ♦ ♦ This team's coabs:");
-        for (Coab coab : coabs) {
-            System.out.println(coab);
-        }
+        return coA;
     }
 
-    private void initTeamMembers(String c1Name, String c2Name, String c3Name, String c4Name) {
-        System.out.println("\n♦ ♦ ♦ Initializing P1 as " + c1Name);
-        this.c1 = ProcessTxt.CHAR_INFO_DICTIONARY.get(c1Name);
-        c1.initChar(c1);
-        System.out.println("\n♦ ♦ ♦ Initializing P2 as " + c2Name);
-        this.c2 = ProcessTxt.CHAR_INFO_DICTIONARY.get(c2Name);
-        c2.initChar(c2);
-        System.out.println("\n♦ ♦ ♦ Initializing P3 as " + c3Name);
-        this.c3 = ProcessTxt.CHAR_INFO_DICTIONARY.get(c3Name);
-        c3.initChar(c3);
-        System.out.println("\n♦ ♦ ♦ Initializing P4 as " + c4Name);
-        this.c4 = ProcessTxt.CHAR_INFO_DICTIONARY.get(c4Name);
-        c4.initChar(c4);
+    private Char[] initTeamMembers(String c1Name, String c2Name, String c3Name, String c4Name) {
+        String[] names = new String[]{c1Name, c2Name, c3Name, c4Name};
+        Char[] chars = new Char[4];
+        for (int i = 0; i < 4; i++) {
+            System.out.println("\n♦ ♦ ♦ Initializing P" + (i+1) + " as " + names[i]);
+            chars[i] = Char.copy(ProcessTxt.CHAR_INFO_DICTIONARY.get(names[i]));
+            chars[i].initChar(chars[i]);
+        }
+        return chars;
+    }
+
+    public void printTeamInfo(Char[] team) {
+        System.out.println("♥ ♥ ♥ Team Info ♥ ♥ ♥");
+        for (Char c : team) {
+            System.out.println(c);
+        }
+        System.out.println("\n♦ ♦ ♦ This team's coabs:");
+        for (Coab coab : this.coabs) {
+            System.out.println(coab);
+        }
     }
 
 }
