@@ -1,3 +1,7 @@
+// todo move the parsing to each object
+// todo change init dictionary to take no params
+// todo make 5 dictionary class and replace txt files
+
 package util;
 
 import java.io.File;
@@ -20,7 +24,7 @@ public class ProcessTxt {
     public static final HashMap<String, Char> CHAR_INFO_DICTIONARY = new HashMap<>();
     public final static String COABS_DICT_LOCATION = "./data/coabs.txt";
     public static final HashMap<String, Coab> COABS_DICTIONARY = new HashMap<>();
-    public final static String PRINTS_DICT_LOCATION = "./data/prints.txt";
+    //public final static String PRINTS_DICT_LOCATION = "./data/prints.txt";
     //public static final HashMap<String, Print> PRINTS_DICTIONARY = new HashMap<>();
     public final static String SKILLS_DICT_LOCATION = "./data/skills.txt";
     public static final HashMap<String, Skill> SKILLS_DICTIONARY = new HashMap<>();

@@ -62,9 +62,7 @@ public class Team {
             System.out.println(c);
         }
         System.out.println("\n♦ ♦ ♦ This team's coabs:");
-        for (Coab coab : this.coabs) {
-            System.out.println(coab);
-        }
+        for (Coab coab : this.coabs) System.out.println(coab);
     }
 
 }

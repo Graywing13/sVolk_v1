@@ -4,7 +4,7 @@
 // Notes:
 //    - Sources are from Gamepedia and Gamepress.
 //    - All characters are assumed to be maxed (e.g. level 80, 100)
-//    - HP and STR assumes maxed mana circle/spiral
+//    - HP and STR assumes maxed mana circles/spiral
 //    - Replace "=" with "means"
 //    - Set all characters' weapons as none
 // ---------------------------------------------------------------------------------------------------------------------
